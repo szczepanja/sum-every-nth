@@ -14,4 +14,8 @@ class NthTest extends AnyFlatSpec with should.Matchers {
   it should "return empty Seq" in {
     nth.sumEveryNth(0, Seq()) should be (Seq.empty)
   }
+
+  it should "sum every 1st element" in {
+    nth.sumEveryNth(1, Seq(0, 1, 2, 3, 4, 5))
+  }
 }
