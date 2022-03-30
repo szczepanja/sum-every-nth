@@ -1,9 +1,10 @@
-class Nth {
-  def sumEveryNth[A](n: Int, ns: Seq[Int]): Seq[Int] = {
-    if (ns.isEmpty && n == 0) {
-      Seq.empty
-    } else {
-      ns.grouped(n).map(_.sum).toSeq
+object Nth {
+  def sumEveryNth[A](n: Int, ns: Seq[Int]): Boolean = {
+    if (n == 0 || ns.isEmpty) return false
+
+    ns.grouped(n).forall {
+      case seq if seq.length != n => true
+      case seq => seq.last == seq.init.sum
     }
   }
 }
